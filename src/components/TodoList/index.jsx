@@ -1,71 +1,24 @@
 import React from "react";
-import { Component } from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { traerTareas } from "../../store/slices/todo";
 import "./styles.css";
-import TareaItem from "components/TodoListItem";
-import { fetchTodos, addTodo, updateTodo, deleteTodo, toggleTodo } from '../../store/slices/todo';
-
-const cargandoModulo = () => {
-  return (
-    <div className="todo-list-content">
-      <div className="todo-item">
-        <div className="todo-item-content">
-          <div className="todo-item-content-text">Cargando...</div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-
-
-const tareasModulo = (tareas) => {
-  return (
-    tareas.map((todo) => (
-      TareaItem(todo)
-    )))}
-
-const mostrarTareas = (estaCargando, tareas) => {
-  
-  return(
-  <div className="todo-list-content-div"><div className="todo-list-subdiv">{(estaCargando) ? cargandoModulo() : tareasModulo(tareas)}</div></div>
-  )
-}
-
-const sinTareas = () => {
-  return(<div style={{color: '#fff'}} className="no-todo-content-div">
-  No tienes ninguna tarea por hacer!
-</div>)
-}
 
 const TodoList = () => {
-
-  
-
-  const todos = useSelector((state) => state.todos.todos);
-  const status = useSelector((state) => state.todos.status);
-  const error = useSelector((state) => state.todos.error);
-  const largo_todos = useSelector((state) => state.todos.largo);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
-
-  
-
-
-  const handleDeleteTodo = async (id) => {
-    dispatch(deleteTodo(id));
+  const handleDelete = (todoId) => {
+    // Fix an ability to delete task
   };
 
-  console.log('largo todos',largo_todos)
+  const toggleCheck = (todoId, isChecked) => {
+    // Fix an ability to toggle task
+  };
+
   return (
     <div className="todo-list">
-        {(largo_todos > 0) ? mostrarTareas(status === 'loading', todos) : sinTareas()}
-        
+      <span className="todo-list-title">Things to do:</span>
+      <div className="todo-list-content">
+        {/* Fix an ability to render todos */}
+      </div>
+      <div className="no-todos">
+        Looks like you&apos;re absolutely free today!
+      </div>
     </div>
   );
 };
