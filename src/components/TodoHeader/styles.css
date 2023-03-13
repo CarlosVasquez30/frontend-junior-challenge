@@ -1,0 +1,18 @@
+.todo-list-div-title {
+
+    background-color: #7000FF;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .todo-list-title {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 26px;
+    
+  }

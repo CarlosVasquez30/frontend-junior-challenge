@@ -1,26 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTodo, markTodo, removeTodo } from "../../store/slices/todo";
 
-const TodoListItem = ({ onCheck, checked, onDelete, label }) => (
-  <div className="todo-list-item">
-    <div
-      tabIndex="0"
-      role="checkbox"
-      aria-checked
-      className="todo-list-item-content"
-    >
-      <input
-        tabIndex="-1"
-        type="checkbox"
-        checked={checked}
-        onChange={onCheck}
-      />
-      <span className={checked ? "todo-list-item-checked" : ""}>{label}</span>
-    </div>
-    <button type="button" className="todo-list-item-delete" onClick={onDelete}>
-      x
-    </button>
+
+const TareaItem = (todo) => {
+
+  const dispatch = useDispatch();
+  
+  const checkTODO = () => {
+    dispatch(markTodo(todo.id,todo.checked));
+    
+  }
+
+  const moduloCheckBox = () => {
+    
+    return (
+      <div onClick={checkTODO} className={(todo.checked) ? "checkbox_on" : "checkbox_off"}  style={{borderRadius: "100px"}}>
+        ✓
+      </div>
+    );}
+    
+  
+  
+  const removeTODO = () => {
+    
+    dispatch(deleteTodo(todo.id));
+  }
+
+  return( <div className="todo-item" key={todo.id}>
+
+        {moduloCheckBox()}
+
+        <div className="label-item"><a className={(todo.checked) ? "todo-item-text-checked" : "todo-item-text"}>{todo.label}</a></div>
+        <div onClick={removeTODO} className="btn-borrar-todo" style={{borderRadius: "5px"}}>
+          <a>X</a>
+        </div>
+    
   </div>
-);
+);}
 
-export default TodoListItem;
+export default TareaItem;
