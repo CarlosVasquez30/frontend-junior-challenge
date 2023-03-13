@@ -1,41 +1,72 @@
-.todo-list-item {
+.todo-item{
+  background-color: #000;
+  border-radius: 10px;
   display: flex;
+  justify-content: space-between; /* Establece un espaciado igual entre los elementos */
   align-items: center;
-  justify-content: space-between;
-  width: 400px;
-  margin: 0 auto 5px;
+  margin-bottom: 10px;
+  height: 40px;
+  width: 98%;
+  
+  overflow: hidden;
+}
+
+.checkbox_off {
+  background-color: #7000FF;
+  color: #7000FF;
+  display: inline-block;
+  padding: 1%;
+  margin-left: 5%;
+  height: auto;
+}
+
+
+
+.checkbox_off:hover {
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.todo-list-item-content {
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  padding: 5px 10px 5px 5px;
+.checkbox_on {
+  background-color: #fff;
+  color: #7000FF;
+  display: inline-block;
+  padding: 1%;
+  margin-left: 5%;
+  height: auto;
 }
 
-.todo-list-item-content input {
-  margin-right: 5px;
-}
-
-.todo-list-item-content:hover {
-  background: rgb(245, 245, 245);
-}
-
-.todo-list-item-delete {
-  background: rgb(200, 200, 200);
-  border: none;
+.checkbox_on:hover {
+  background-color: #7000FF;
+  color: #7000FF;
+  font-weight: bold;
   cursor: pointer;
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
 }
 
-.todo-list-item-delete:hover {
-  background: rgb(172, 172, 172);
+.checkOn-item {
+  color: white;
+}	
+
+.checkOff-item {
+  color: #000;
 }
 
-.todo-list-item-checked {
+.todo-item-text-checked{
   text-decoration: line-through;
+  color: #fff;
+}
+
+.btn-borrar-todo{
+  background-color: #7000FF;
+  padding: 1%;
+  margin-right: 1%;
+}
+
+.btn-borrar-todo:hover{
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
 }
